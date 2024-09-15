@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interest Areas Forms</title>
+
+  <!--CSS FILE-->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f4efe5;
+      overflow: hidden;
+
+    }
+
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #f4efe5;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .safety-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .image-container {
+      margin: 0;
+      padding: 0;
+      width: 30%;
+      height: 100vh;
+      background-color: #d9534f;
+    }
+
+    .form-container {
+      width: 65%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+    }
+
+    .journey-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.5em;
+      font-weight: 600;
+      text-align: start;
+      text-transform: uppercase;
+      padding-bottom: 20px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .form-group {
+      width: calc(50% - 10px);
+      margin-bottom: 20px;
+    }
+
+    .required {
+      color: #d9534f;
+      font-size: 12px;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100vh;
+    }
+
+    label {
+      display: block;
+      color: #000;
+      font-size: 12px;
+      padding-bottom: 6px;
+      font-weight: 600;
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select {
+      width: calc(100% - 10px);
+      padding: 12px;
+      border: 0;
+      border-radius: 5px;
+      font-size: 1em;
+      background-color: #fff;
+    }
+
+    .radio-container {
+      display: flex;
+      align-items: start;
+    }
+
+    .radio-heading {
+      display: block;
+      color: #000;
+      font-size: 14px;
+      font-weight: 600;
+      padding-bottom: 6px;
+      font-family: "Montserrat", sans-serif;
+      text-transform: uppercase;
+    }
+
+    .radio-label-content {
+      font-family: "Raleway", sans-serif;
+      font-size: 12px;
+    }
+
+    .contact-input {
+      display: flex;
+      width: calc(100% - 10px);
+    }
+
+    .contact-input select {
+      margin-right: 10px;
+      padding: 5px;
+    }
+
+    .radio-group {
+      margin-bottom: 20px;
+    }
+
+    .radio-label {
+      font-family: "Raleway", sans-serif;
+      font-size: 12px;
+    }
+
+    .radio-row {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .radio-group input[type="radio"] {
+      margin-right: 10px;
+    }
+
+    .contact-preferences {
+      margin-top: 30px;
+      font-size: 1em;
+      color: #333;
+    }
+
+    .contact-preferences h2 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .contact-preferences p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .contact-preferences a {
+      color: #b38b32;
+      text-decoration: none;
+    }
+
+    .contact-preferences a {
+      text-decoration: underline;
+    }
+
+    .contact-content {
+      padding-top: 10px;
+      font-family: "Raleway", sans-serif;
+      font-size: 12px;
+    }
+
+    .contact-sub-heading {
+      padding-top: 10px;
+      font-family: "Raleway", sans-serif;
+      font-size: 12px;
+    }
+
+    .button-container {
+      text-align: start;
+      margin-top: 20px;
+    }
+
+    .button {
+      font-family: "Raleway", sans-serif;
+      background-color: #000;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1em;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .radio-options {
+      display: flex;
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .radio-options label {
+      display: flex;
+      align-items: center;
+      font-size: 0.95em;
+    }
+
+    .radio-options input[type="radio"] {
+      margin-right: 8px;
+      width: 30px;
+      height: 30px;
+      border: 2px solid #b38b32;
+      appearance: none;
+      border-radius: 30px;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .radio-options input[type="radio"]:checked::before {
+      content: "";
+      display: block;
+      width: 8px;
+      height: 8px;
+      background-color: #b38b32;
+      border-radius: 50%;
+      position: absolute;
+      left: 9px;
+      top: 9px;
+    }
+
+    .radio-options-group {
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .country-code-select {
+      width: 70px;
+    }
+
+    @media screen and (max-width: 700px) {
+      .form-container {
+        width: 100%;
+        padding: 15px;
+      }
+
+      .image-container {
+        display: none;
+      }
+
+      .form-row {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group {
+        width: 100%;
+      }
+    }
+  </style>
+  <style>
+    .form-research-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .form-research-group {
+      width: calc(90% - 10px);
+      margin-bottom: 30px;
+    }
+
+    .research-label {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: start;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .radio-research-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: start;
+      text-transform: uppercase;
+      padding-bottom: 10px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .radio-research-sub-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 100;
+      text-align: start;
+      padding-bottom: 10px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .radio-research-label-content {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      color: #000;
+      text-transform: none;
+    }
+
+    .checkbox-container {
+      margin-top: 20px;
+    }
+
+    .custom-checkbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      position: relative;
+      cursor: pointer;
+      font-size: 1em;
+      user-select: none;
+    }
+
+    .checkbox-input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-checkmark {
+      width: 30px;
+      height: 30px;
+      background-color: #fff;
+      /* border: 2px solid #b38b32; Golden border color */
+      display: inline-block;
+      margin-right: 10px;
+      border-radius: 4px;
+      position: relative;
+      transition: background-color 0.3s ease;
+    }
+
+    .checkbox-input:checked~.checkbox-checkmark::after {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 6px;
+      width: 4px;
+      height: 10px;
+      border: solid #b38b32;
+      /* Golden checkmark color */
+      border-width: 0 3px 3px 0;
+      transform: rotate(45deg);
+    }
+
+    .checkbox-checkmark::after {
+      content: "";
+      display: none;
+    }
+
+    .checkbox-input:checked~.checkbox-checkmark {
+      background-color: #fff;
+    }
+
+    .checkbox-input:checked~.checkbox-checkmark::after {
+      display: block;
+    }
+
+    .other-input {
+      font-family: Raleway, sans-serif;
+      width: calc(30% - 10px);
+      padding: 6px;
+      border: 0;
+      background-color: #fff;
+    }
+
+    .research-details-button-container {
+      display: flex;
+      padding-top: 30px;
+    }
+
+    .button-variant-1 {
+      font-family: "Raleway", sans-serif;
+      background-color: transparent;
+      color: #000;
+      width: 140px;
+      height: 60px;
+      font-size: 1.2em;
+      border: 2px solid #000;
+      border-radius: 70px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .button-variant-2 {
+      font-family: "Raleway", sans-serif;
+      background-color: #000;
+      color: #fff;
+      width: 140px;
+      height: 60px;
+      font-size: 1em;
+      border: none;
+      border-radius: 70px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 30px;
+      text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 700px) {
+
+      .form-container {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+
+      .form-research-group {
+        width: calc(100% - 5px);
+        margin-bottom: 30px;
+      }
+
+      .other-input {
+        font-family: Raleway, sans-serif;
+        width: calc(90% - 10px);
+        padding: 6px;
+        border: 0;
+        background-color: #fff;
+      }
+
+      .research-details-button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 10px;
+      }
+
+      .button-variant-1 {
+        font-family: "Raleway", sans-serif;
+        background-color: transparent;
+        color: #000;
+        width: 100%;
+        height: 70px;
+        font-size: 1.2em;
+        border: 2px solid #000;
+        border-radius: 70px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-transform: uppercase;
+      }
+
+
+      .button-variant-2 {
+        font-family: "Raleway", sans-serif;
+        background-color: #000;
+        color: #fff;
+        width: 100%;
+        height: 70px;
+        font-size: 1em;
+        border: none;
+        border-radius: 70px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-left: 0;
+        text-transform: uppercase;
+      }
+
+    }
+  </style>
+  <style>
+    .interest-container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .interest-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: start;
+      text-transform: uppercase;
+      padding-bottom: 6px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .interest-sub-heading {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      font-weight: 100;
+      text-align: start;
+      padding-bottom: 10px;
+      letter-spacing: 2px;
+      color: #333;
+    }
+
+    .interest-text-area {
+      width: 100%;
+      min-height: 200px;
+      background-color: #fff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      padding: 20px;
+      border: 0;
+      resize: none;
+      border: none;
+      outline: none;
+    }
+
+    .interest-text-area-2 {
+      width: 100%;
+      background-color: #fff;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      border: 0;
+      padding: 10px;
+      resize: none;
+      border: none;
+      outline: none;
+    }
+
+    @media screen and (max-width: 700px) {
+
+      .interest-text-area-2 {
+        width: 100%;
+        min-height: 200px;
+        background-color: #fff;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        border: 0;
+        padding: 20px;
+        resize: none;
+        border: none;
+        outline: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="safety-container">
+      <div class="image-container">
+        <img src="https://ik.imagekit.io/8wyk0i5k82/Banner.png?updatedAt=1726402267326" alt="banner-image" class="banner-image" />
+      </div>
+      <div class="form-container">
+        <form action="./thanks.html">
+          <div class="interest-container">
+            <div class="radio-container">
+              <span class="radio-heading">I AM A</span>
+              <span class="required"> *</span>
+            </div>
+
+            <div class="radio-options">
+              <div class="radio-options-group">
+                <input type="radio" id="option1" name="interest" value="Early Childhood Education" required />
+                <p for="option1" class="radio-label-content">High School Student</p>
+              </div>
+            </div>
+
+            <div class="radio-options">
+              <div class="radio-options-group">
+                <input type="radio" id="option2" name="interest" value="Learning More About ERI" required />
+                <p for="option2" class="radio-label-content">Undergraduate Student</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="interest-container">
+            <p class="interest-heading">
+              AREA OF RESEARCH </p>
+            <p class="interest-sub-heading">Please specify your current research topic and whether it is
+              experimental or theoretical.</p>
+
+            <textarea class="interest-text-area"></textarea>
+          </div>
+
+          <div class="form-research-row">
+            <div class="form-research-group">
+              <label for="research-details" class="research-label">YOUR CURRENT UNIVERSITY, INSTITUTE, OR ORGANIZATION
+                NAME <span class="required">*</span>
+              </label>
+              <textarea class="interest-text-area-2" required></textarea>
+            </div>
+          </div>
+
+          <div class="research-details-button-container">
+            <button type="submit" class="button-variant-1">Back</button>
+            <button type="submit" class="button-variant-2">Next</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
